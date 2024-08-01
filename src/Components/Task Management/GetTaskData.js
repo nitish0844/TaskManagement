@@ -36,6 +36,7 @@ const GetTaskData = () => {
     };
 
     fetchTasks();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [setTaskListData, taskLoading]); // Added setTaskListData to the dependency array
 
   return null; // No JSX needed
