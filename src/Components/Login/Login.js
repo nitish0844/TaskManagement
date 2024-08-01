@@ -59,7 +59,9 @@ const Login = () => {
         <Loader />
       ) : (
         <div className="w-full max-w-md p-8 bg-white shadow-md rounded-lg">
-          <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+          <h2 className="text-2xl font-bold mb-6 text-center font-bitter">
+            Login
+          </h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label
