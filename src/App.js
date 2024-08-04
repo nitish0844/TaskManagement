@@ -4,6 +4,7 @@ import TaskManagementScreen from "./Screens/TaskManagementScreen";
 import Login from "./Components/Login/Login";
 import Lottie from "lottie-react";
 import NoInternetJson from "./Assets/NoInternet/NoInternet.json";
+import Trail from "./Components/Trail";
 
 const NoInternetMessage = () => {
   return (
@@ -61,6 +62,7 @@ const App = () => {
         <Route>
           <Route path="/" exact component={Login} />
           <Route path="/task" exact component={TaskManagementScreen} />
+          <Route path="/trail" exact component={Trail} />
         </Route>
       ) : (
         <DesktopMessage />
