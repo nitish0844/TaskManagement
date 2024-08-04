@@ -62,7 +62,7 @@ const App = () => {
         <Route>
           <Route path="/" exact component={Login} />
           <Route path="/task" exact component={TaskManagementScreen} />
-          <Route path="/trail" exact component={Trail} />
+          <Route path="/1" exact component={Trail} />
         </Route>
       ) : (
         <DesktopMessage />
