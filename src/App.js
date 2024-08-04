@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import TaskManagementScreen from "./Screens/TaskManagementScreen";
 import Login from "./Components/Login/Login";
 import Lottie from "lottie-react";
@@ -27,6 +27,14 @@ const DesktopMessage = () => (
     <div className="text-center p-4 text-red-700 font-extrabold font-bitter">
       Please open the site in a desktop-sized screen.
     </div>
+  </div>
+);
+
+const NotFound = () => (
+  <div className="h-screen flex flex-col justify-center items-center">
+    <h1 className="text-center text-4xl font-extrabold">
+      404 - Page Not Found
+    </h1>
   </div>
 );
 
@@ -59,11 +67,12 @@ const App = () => {
       {!isOnline ? (
         <NoInternetMessage />
       ) : isDesktop ? (
-        <Route>
+        <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/task" exact component={TaskManagementScreen} />
           <Route path="/1" exact component={Trail} />
-        </Route>
+          <Route component={NotFound} />
+        </Switch>
       ) : (
         <DesktopMessage />
       )}
