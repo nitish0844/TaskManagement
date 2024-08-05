@@ -10,12 +10,6 @@ const Trail = () => {
   const timezones = moment.tz.names();
 
   // Function to get the GMT offset in format GMT ±HH:mm
-  const getTimezoneOffset = (timezone) => {
-    if (!timezone) return "";
-    const offset = moment.tz(timezone).format("Z");
-    const sign = offset[0] === "+" ? "GMT +" : "GMT -";
-    return `${sign}${offset.slice(1)}`;
-  };
 
   // Function to update the current date and time
   const updateDateTime = (timezone) => {
@@ -52,10 +46,7 @@ const Trail = () => {
           </option>
         ))}
       </select>
-      <p>
-        Selected Timezone:{" "}
-        {selectedTimezone ? getTimezoneOffset(selectedTimezone) : "None"}
-      </p>
+
       <p>Current Date: {currentDate || "N/A"}</p>
       <p>Current Time: {currentTime || "N/A"}</p>
     </div>
