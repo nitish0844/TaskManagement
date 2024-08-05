@@ -9,8 +9,6 @@ const Trail = () => {
   // Get list of timezones
   const timezones = moment.tz.names();
 
-  // Function to get the GMT offset in format GMT ±HH:mm
-
   // Function to update the current date and time
   const updateDateTime = (timezone) => {
     if (timezone) {
