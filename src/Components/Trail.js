@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment-timezone";
 
 const Trail = () => {
   const [selectedTimezone, setSelectedTimezone] = useState("");
+  const [currentDate, setCurrentDate] = useState("");
+  const [currentTime, setCurrentTime] = useState("");
 
   // Get list of timezones
   const timezones = moment.tz.names();
@@ -15,9 +17,29 @@ const Trail = () => {
     return `${sign}${offset.slice(1)}`;
   };
 
-  const handleTimezoneChange = (event) => {
-    setSelectedTimezone(event.target.value);
+  // Function to update the current date and time
+  const updateDateTime = (timezone) => {
+    if (timezone) {
+      const now = moment.tz(timezone);
+      setCurrentDate(now.format("YYYY-MM-DD")); // Format the date
+      setCurrentTime(now.format("HH:mm:ss")); // Format the time
+    } else {
+      setCurrentDate("");
+      setCurrentTime("");
+    }
   };
+
+  const handleTimezoneChange = (event) => {
+    const timezone = event.target.value;
+    setSelectedTimezone(timezone);
+    updateDateTime(timezone);
+  };
+
+  useEffect(() => {
+    if (selectedTimezone) {
+      updateDateTime(selectedTimezone);
+    }
+  }, [selectedTimezone]);
 
   return (
     <div>
@@ -34,6 +56,8 @@ const Trail = () => {
         Selected Timezone:{" "}
         {selectedTimezone ? getTimezoneOffset(selectedTimezone) : "None"}
       </p>
+      <p>Current Date: {currentDate || "N/A"}</p>
+      <p>Current Time: {currentTime || "N/A"}</p>
     </div>
   );
 };
