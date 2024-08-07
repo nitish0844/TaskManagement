@@ -74,6 +74,7 @@ const AddTaskModal = ({ isOpen, onRequestClose }) => {
           <input
             type="text"
             value={title}
+            required
             onChange={(e) => setTitle(e.target.value)}
             className="block w-full p-2 border border-gray-300 rounded"
           />
@@ -82,6 +83,7 @@ const AddTaskModal = ({ isOpen, onRequestClose }) => {
           Description:
           <textarea
             value={description}
+            required
             onChange={(e) => setDescription(e.target.value)}
             className="block w-full p-2 border border-gray-300 rounded"
           />
@@ -90,6 +92,7 @@ const AddTaskModal = ({ isOpen, onRequestClose }) => {
           Date of Task Creation:
           <input
             type="date"
+            required
             value={dateOfCreation}
             onChange={(e) => setDateOfCreation(e.target.value)}
             className="block w-full p-2 border border-gray-300 rounded"
@@ -99,6 +102,7 @@ const AddTaskModal = ({ isOpen, onRequestClose }) => {
           Date of Deadline:
           <input
             type="date"
+            required
             value={dateOfDeadline}
             onChange={(e) => setDateOfDeadline(e.target.value)}
             className="block w-full p-2 border border-gray-300 rounded"
@@ -108,6 +112,7 @@ const AddTaskModal = ({ isOpen, onRequestClose }) => {
           Priority:
           <select
             value={priority}
+            required
             onChange={(e) => setPriority(e.target.value)}
             className="block w-full p-2 border border-gray-300 rounded"
           >
@@ -120,6 +125,7 @@ const AddTaskModal = ({ isOpen, onRequestClose }) => {
           Status:
           <select
             value={status}
+            required
             onChange={(e) => setStatus(e.target.value)}
             className="block w-full p-2 border border-gray-300 rounded"
           >
